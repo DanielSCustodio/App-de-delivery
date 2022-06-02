@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from '../pages/login';
 import RegisterPage from '../pages/register';
+import ProductsPage from '../pages/products';
 
 export default function Router() {
   return (
@@ -21,6 +22,7 @@ export default function Router() {
         path="/register"
         element={ <RegisterPage /> }
       />
+      <Route path="/customer/products" element={ <ProductsPage /> } />
     </Routes>
   );
 }
