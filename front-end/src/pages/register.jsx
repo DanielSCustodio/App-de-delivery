@@ -1,7 +1,8 @@
 import React from 'react';
+import CardRegister from '../templates/cardRegister';
 
 export default function RegisterPage() {
   return (
-    <h1>o9iui</h1>
+    <CardRegister />
   );
 }

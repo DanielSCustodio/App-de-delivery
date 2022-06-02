@@ -30,7 +30,6 @@ export default function CardLogin() {
       localStorage.setItem('user', JSON.stringify(data.userData));
       setIsLogged(true);
     } catch (error) {
-      console.log('caiu no catch :', error);
       setFailedLogin(true);
       setIsLogged(false);
     }
