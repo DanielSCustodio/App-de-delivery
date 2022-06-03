@@ -54,7 +54,6 @@ export default function CardProduct({ name, imageURL, price, id }) {
         dataTestId={ `customer_products__button-card-add-item-${id}` }
         type="button"
       />
-
     </section>
   );
 }

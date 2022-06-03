@@ -8,6 +8,7 @@ export default function Button({
   className,
   disabled,
   type,
+  price,
 }) {
   return (
     <button
@@ -19,6 +20,7 @@ export default function Button({
       type={ type === 'button' ? 'button' : 'submit' }
     >
       {name}
+      {price}
     </button>
   );
 }
@@ -30,8 +32,10 @@ Button.propTypes = {
   className: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   type: PropTypes.string.isRequired,
+  price: PropTypes.element,
 };
 
 Button.defaultProps = {
   disabled: false,
+  price: null,
 };
