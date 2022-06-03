@@ -16,7 +16,7 @@ export default function CardHeader({ userName }) {
     <header>
       <nav>
         <Link
-          to="/custumer/products"
+          to="/customer/products"
           data-testid="customer_products__element-navbar-link-products"
         >
           Produtos

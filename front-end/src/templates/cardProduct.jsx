@@ -1,10 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../components/button';
 import TextInput from '../components/textInput';
+import ContextGeneral from '../context/contextGeneral';
 
 export default function CardProduct({ name, imageURL, price, id }) {
+  const { cart, setCart } = useContext(ContextGeneral);
   const [quantity, setQuantity] = useState(0);
+  const item = { id, price };
+
+  const handleProduts = (nameProduct, value) => {
+    const newCart = cart.filter((it) => it.id !== item.id);
+    switch (nameProduct) {
+    case ('+'):
+      setQuantity((prevState) => prevState + 1);
+      setCart([...newCart, { ...item, quantity: (quantity + 1) }]);
+      break;
+    case ('-'):
+      setQuantity((prevState) => prevState - 1);
+      setCart([...newCart, { ...item, quantity: (quantity - 1) }]);
+      if (quantity === 1) setCart(newCart);
+      break;
+    default:
+      setQuantity(+value);
+      setCart([...newCart, { ...item, quantity: +value }]);
+      if (+value === 0) setCart(newCart);
+    }
+  };
 
   return (
     <section>
@@ -33,7 +55,7 @@ export default function CardProduct({ name, imageURL, price, id }) {
 
       <Button
         name="-"
-        handleClick={ () => setQuantity(quantity - 1) }
+        handleClick={ ({ target }) => handleProduts(target.name) }
         className=" button"
         dataTestId={ `customer_products__button-card-rm-item-${id}` }
         type="button"
@@ -42,14 +64,14 @@ export default function CardProduct({ name, imageURL, price, id }) {
       <TextInput
         className=" text-input"
         name="quantity"
-        onChange={ ({ target }) => setQuantity(target.value) }
+        onChange={ ({ target }) => handleProduts(target.name, target.value) }
         type="number"
         value={ quantity }
         dataTestId={ `customer_products__input-card-quantity-${id}` }
       />
       <Button
         name="+"
-        handleClick={ () => setQuantity(quantity + 1) }
+        handleClick={ ({ target }) => handleProduts(target.name) }
         className=" button"
         dataTestId={ `customer_products__button-card-add-item-${id}` }
         type="button"
