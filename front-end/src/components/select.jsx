@@ -27,6 +27,9 @@ export default function Select({
         className={ className }
         defaultValue={ defaultValue }
       >
+        <option>
+          {defaultValue}
+        </option>
         {options.map((option) => (
           <option
             key={ option }
