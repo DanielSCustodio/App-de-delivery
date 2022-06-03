@@ -7,7 +7,7 @@ import ContextGeneral from '../context/contextGeneral';
 export default function CardProduct({ name, imageURL, price, id }) {
   const { cart, setCart } = useContext(ContextGeneral);
   const [quantity, setQuantity] = useState(0);
-  const item = { id, price };
+  const item = { id, price, name, imageURL };
 
   const handleProduts = (nameProduct, value) => {
     const newCart = cart.filter((it) => it.id !== item.id);
