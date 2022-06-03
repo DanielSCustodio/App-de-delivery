@@ -9,7 +9,6 @@ export default function CardHeader({ userName }) {
 
   const logout = () => {
     localStorage.removeItem('user');
-    console.log('entrei no botão');
     navigate('/login');
   };
 

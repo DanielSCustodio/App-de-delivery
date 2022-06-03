@@ -13,6 +13,6 @@ app.use(cors());
 app.use(loginRouter);
 app.use(registerRouter);
 app.use(productRouter);
+app.use('/images', express.static('public/images'));
 app.get('/coffee', (_req, res) => res.status(418).end());
-
 module.exports = app;

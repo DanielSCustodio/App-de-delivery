@@ -6,7 +6,7 @@ const url = `http://${REACT_APP_HOSTNAME || 'localhost'}:${REACT_APP_BACKEND_POR
 
 const api = axios.create({ baseURL: url });
 
-export const getProducts = async (endpoint, token) => api.get(endpoint, {
+export const getData = async (endpoint, token) => api.get(endpoint, {
   headers: { Authorization: token },
 });
 
