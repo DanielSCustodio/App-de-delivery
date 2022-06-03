@@ -17,6 +17,7 @@ const login = async (email, password) => {
 
   const userData = {
     name: userVerify.name,
+    id: userVerify.id,
     email: userVerify.email,
     role: userVerify.role,
     token: jwtToken,
