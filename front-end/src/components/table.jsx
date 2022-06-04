@@ -35,30 +35,29 @@ export default function Table() {
             key={ sale.id }
           >
             <td
-              data-testid={ `customer_checkout__element-order-table-item-number-${i + 1}` }
+              data-testid={ `customer_checkout__element-order-table-item-number-${i}` }
             >
               {i + 1}
             </td>
             <td
-              data-testid={ `customer_checkout__element-order-table-name-${i + 1}` }
+              data-testid={ `customer_checkout__element-order-table-name-${i}` }
             >
               {sale.name}
             </td>
             <td
-              data-testid={ `customer_checkout__element-order-table-quantity-${i + 1}` }
+              data-testid={ `customer_checkout__element-order-table-quantity-${i}` }
             >
               {sale.quantity}
             </td>
             <td
-              data-testid={ `customer_checkout__element-order-table-unit-price-${i + 1}` }
+              data-testid={ `customer_checkout__element-order-table-unit-price-${i}` }
             >
-              {sale.price.toString().replace('.', ',')}
+              {sale.price.toFixed(2).replace('.', ',')}
             </td>
             <td
-              data-testid={ `customer_checkout__element-order-table-sub-total-${i + 1}
-              ` }
+              data-testid={ `customer_checkout__element-order-table-sub-total-${i}` }
             >
-              {(sale.price * sale.quantity).toString().replace('.', ',')}
+              {(sale.price * sale.quantity).toFixed(2).replace('.', ',')}
             </td>
             <td>
               <Button
