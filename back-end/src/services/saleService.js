@@ -13,7 +13,7 @@ const createSale = async (obj) => {
   const totalPrice = Number(tPrice);
 
   const result = await sequelize.transaction(async (t) => {
- const sale = await Sale.create({
+    const sale = await Sale.create({
       userId, sellerId, totalPrice, deliveryAddress, deliveryNumber, status,
     }, { transaction: t });
 
@@ -23,14 +23,17 @@ const createSale = async (obj) => {
 
     return ({ code: 201, sale });
   });
-  
+
   return result;
 };
 
-  return ({ code: 201, sale });
+const getSales = async (id) => {
+  const sales = await Sale.findAll({ where: { userId: id } });
+
+  return { code: 200, sales };
 };
 
 module.exports = {
-
   createSale,
+  getSales,
 };
