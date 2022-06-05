@@ -9,16 +9,15 @@ export default function CardAddress() {
 
   useEffect(() => {
     getData('/seller', userData.token)
-      .then(({ data }) => setSellers([data.name]));
+      .then(({ data }) => setSellers(data));
   }, [userData.token]);
 
-  console.log(sellers);
   return (
     <section>
       <Select
         name="select_sellers"
-        value={ seller }
-        options={ sellers }
+        value={ seller || sellers[0].name }
+        options={ sellers.map(({ name }) => name) }
         dataTestId="customer_checkout__select-seller"
         onChange={ ({ target }) => setSeller(target.value) }
         className="select_sellers"
