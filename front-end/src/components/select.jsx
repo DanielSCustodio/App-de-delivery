@@ -9,7 +9,7 @@ export default function Select({
   onChange,
   className,
   labelText,
-  // defaultValue,
+  defaultValue,
 }) {
   return (
     <section>
@@ -25,11 +25,11 @@ export default function Select({
         data-testid={ dataTestId }
         onChange={ onChange }
         className={ className }
-        // defaultValue={ defaultValue }
+        defaultValue={ defaultValue }
       >
-        {/* <option>
+        <option>
           {defaultValue}
-        </option> */}
+        </option>
         {options.map((option) => (
           <option
             key={ option }
@@ -54,7 +54,7 @@ Select.propTypes = {
   onChange: PropTypes.func,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   dataTestId: PropTypes.string.isRequired,
-  // defaultValue: PropTypes.string.isRequired,
+  defaultValue: PropTypes.string.isRequired,
 };
 
 Select.defaultProps = {

@@ -5,18 +5,18 @@ import { getData } from '../helpers/api';
 export default function CardAddress() {
   const [sellers, setSellers] = useState([]);
   const userData = JSON.parse(localStorage.getItem('user'));
-  const [seller, setSeller] = useState('');
+  const [seller, setSeller] = useState('Selecione');
 
   useEffect(() => {
     getData('/seller', userData.token)
       .then(({ data }) => setSellers(data));
   }, [userData.token]);
-
+  // || sellers[0].name
   return (
     <section>
       <Select
         name="select_sellers"
-        value={ seller || sellers[0].name }
+        value={ seller }
         options={ sellers.map(({ name }) => name) }
         dataTestId="customer_checkout__select-seller"
         onChange={ ({ target }) => setSeller(target.value) }
