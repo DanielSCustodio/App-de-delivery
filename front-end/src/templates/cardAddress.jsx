@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from '../components/select';
-import { getData } from '../helpers/api';
+import TextInput from '../components/textInput';
+import Button from '../components/button';
 
 export default function CardAddress() {
   const [sellers, setSellers] = useState([]);
@@ -22,7 +23,31 @@ export default function CardAddress() {
         onChange={ ({ target }) => setSeller(target.value) }
         className="select_sellers"
         labelText="Vendedores"
-        defaultValue="Selecione"
+        // defaultValue={ seller }
+      />
+      <TextInput
+        name="Address"
+        dataTestId="customer_checkout__input-address"
+        onChange={ ({ target }) => setDeliveryAddress(target.value) }
+        value={ deliveryAddress }
+        type="text"
+        className=""
+      />
+      <TextInput
+        name="Number"
+        dataTestId="customer_checkout__input-addressNumber"
+        onChange={ ({ target }) => setDeliveryNumber(target.value) }
+        value={ deliveryNumber }
+        type="number"
+        className=""
+      />
+      <Button
+        dataTestId="customer_checkout__button-submit-order"
+        handleClick={ requestPost }
+        name="Finalizar_Pedido"
+        disabled={ !!(deliveryAddress === '' || deliveryNumber < 0) }
+        type="button"
+        className=""
       />
     </section>
   );
