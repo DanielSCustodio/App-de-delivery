@@ -19,11 +19,11 @@ module.exports = Joi.object({
   'number.empty': '400|"sellerId" is not allowed to be empty',
   'number.integer': '400|"sellerId" must be an integer',
   }),
-  totalPrice: Joi.string().required().empty()
+  totalPrice: Joi.number().required().empty()
 .messages({
     'any.required': '400|"totalPrice" is required',
-    'string.base': '400|"totalPrice" must be a string',
-    'string.empty': '400|"totalPrice" is not allowed to be empty',
+    'number.base': '400|"totalPrice" must be a number',
+    'number.empty': '400|"totalPrice" is not allowed to be empty',
     }),
   deliveryAddress: Joi.string().max(100).required().empty()
 .messages({
@@ -43,7 +43,7 @@ module.exports = Joi.object({
 .messages({
       'string.base': '400|"status" must be a string',
       }),
-  carts: Joi.array().items(Joi.object({
+  cart: Joi.array().items(Joi.object({
     id: Joi.number().integer().positive().strict()
 .required()
 .empty()
