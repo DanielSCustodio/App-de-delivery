@@ -7,18 +7,15 @@ const config = require('../database/config/config');
 const sequelize = new Sequelize(config.development);
 
 const createSale = async (obj) => {
-  const { userId, sellerId, totalPrice: tPrice, deliveryAddress, deliveryNumber,
-    status, carts } = obj;
-
-  const totalPrice = Number(tPrice);
+  const { userId, sellerId, totalPrice, deliveryAddress, deliveryNumber, cart } = obj;
 
   const result = await sequelize.transaction(async (t) => {
     const sale = await Sale.create({
-      userId, sellerId, totalPrice, deliveryAddress, deliveryNumber, status,
+      userId, sellerId, totalPrice, deliveryAddress, deliveryNumber,
     }, { transaction: t });
 
-    await Promise.all(carts.map((cart) => SalesProduct.create(
-      { saleId: sale.id, productId: cart.id, quantity: cart.quantity }, { transaction: t },
+    await Promise.all(cart.map((c) => SalesProduct.create(
+      { saleId: sale.id, productId: c.id, quantity: c.quantity }, { transaction: t },
     )));
 
     return ({ code: 201, sale });
