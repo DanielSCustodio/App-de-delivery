@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const { Sale, SalesProduct } = require('../database/models');
+const { Sale, SalesProduct, Product } = require('../database/models');
 
 const config = require('../database/config/config');
 
@@ -28,7 +28,15 @@ const createSale = async (obj) => {
 };
 
 const getSales = async (id) => {
-  const sales = await Sale.findAll({ where: { userId: id } });
+  const sales = await Sale.findAll({ 
+    where: { userId: id },
+    include: [{ 
+      model: Product,
+      as: 'products',
+      attributes: { exclude: ['urlImage'] },
+      through: { attributes: ['quantity'] }, 
+    }],
+  });
 
   return { code: 200, sales };
 };
