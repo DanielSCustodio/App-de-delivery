@@ -12,4 +12,7 @@ export const getData = async (endpoint, token) => api.get(endpoint, {
 
 export const postRequest = async (endpoint, body) => api.post(endpoint, body);
 
+export const postRequestToken = async (endpoint, body, token) => api.post(endpoint, body,
+  { headers: { Authorization: token } });
+
 export default api;
