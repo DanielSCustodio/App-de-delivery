@@ -5,7 +5,7 @@ const tokenMiddleware = require('../middlewares/tokenMiddleware');
 
 const saleRouter = express.Router();
 
-saleRouter.post('/sale', saleMiddleware, saleController.createSale);
+saleRouter.post('/sale', tokenMiddleware, saleMiddleware, saleController.createSale);
 saleRouter.get('/sale', tokenMiddleware, saleController.getSales);
 
 module.exports = saleRouter;
