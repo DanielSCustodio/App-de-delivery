@@ -1,18 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Select from '../components/select';
 import TextInput from '../components/textInput';
 import Button from '../components/button';
+import { getData, postRequestToken } from '../helpers/api';
+import ContextGeneral from '../context/contextGeneral';
 
 export default function CardAddress() {
   const [sellers, setSellers] = useState([]);
   const userData = JSON.parse(localStorage.getItem('user'));
   const [seller, setSeller] = useState('Selecione');
+  const [deliveryAddress, setDeliveryAddress] = useState('');
+  const [deliveryNumber, setDeliveryNumber] = useState(0);
+  const { total, cart } = useContext(ContextGeneral);
+
+  const navigate = useNavigate();
+
+  const getId = () => sellers.map(({ name, id }) => name === seller && id)[0];
 
   useEffect(() => {
     getData('/seller', userData.token)
       .then(({ data }) => setSellers(data));
   }, [userData.token]);
-  // || sellers[0].name
+
+  const requestPost = async () => {
+    const body = {
+      userId: userData.id,
+      sellerId: getId(),
+      totalPrice: total,
+      deliveryAddress,
+      deliveryNumber,
+      cart: cart.map((c) => ({ id: c.id, quantity: c.quantity })),
+    };
+    console.log(body);
+    const test = await postRequestToken('/sale', body, userData.token);
+    console.log(test);
+
+    navigate(`/customer/orders/${test.data.id}`);
+  };
   return (
     <section>
       <Select
