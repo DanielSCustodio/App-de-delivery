@@ -5,7 +5,7 @@ const createSale = async (req, res, _next) => {
     const { code, sale } = await saleService.createSale(req.body);
     return res.status(code).json(sale);
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     if (error.name.includes('Validation')) { return ({ code: 400, message: error.message }); }
     return res.status(500).json(error);
   }

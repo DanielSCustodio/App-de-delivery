@@ -39,10 +39,6 @@ module.exports = Joi.object({
     'string.empty': '400|"deliveryNumber" is not allowed to be empty',
     'string.max': '400|"deliveryNumber" must not be greather than 50',
     }),
-  status: Joi.string().valid('Pendente', 'Preparando', 'Em Trânsito', 'Entregue')
-.messages({
-      'string.base': '400|"status" must be a string',
-      }),
   cart: Joi.array().items(Joi.object({
     id: Joi.number().integer().positive().strict()
 .required()

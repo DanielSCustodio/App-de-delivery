@@ -12,18 +12,19 @@ export default function CardAddress() {
   const [seller, setSeller] = useState('Selecione');
   const [deliveryAddress, setDeliveryAddress] = useState('');
   const [deliveryNumber, setDeliveryNumber] = useState(0);
-  const { total, cart } = useContext(ContextGeneral);
+  const { total, cart, setCart } = useContext(ContextGeneral);
 
   const navigate = useNavigate();
 
-  const getId = () => sellers.map(({ name, id }) => name === seller && id)[0];
+  const getId = () => sellers.find(({ name }) => name === seller).id;
 
   useEffect(() => {
     getData('/seller', userData.token)
       .then(({ data }) => setSellers(data));
   }, [userData.token]);
 
-  const requestPost = async () => {
+  const requestPost = async (e) => {
+    e.preventDefault();
     const body = {
       userId: userData.id,
       sellerId: getId(),
@@ -33,10 +34,11 @@ export default function CardAddress() {
       cart: cart.map((c) => ({ id: c.id, quantity: c.quantity })),
     };
     console.log(body);
-    const test = await postRequestToken('/sale', body, userData.token);
-    console.log(test);
+    const { data } = await postRequestToken('/sale', body, userData.token);
+    setCart([]);
+    console.log(data);
 
-    navigate(`/customer/orders/${test.data.id}`);
+    navigate(`/customer/orders/${data.id}`);
   };
   return (
     <section>
@@ -68,10 +70,10 @@ export default function CardAddress() {
       />
       <Button
         dataTestId="customer_checkout__button-submit-order"
-        handleClick={ requestPost }
+        handleClick={ (e) => requestPost(e) }
         name="Finalizar_Pedido"
         disabled={ !!(deliveryAddress === '' || deliveryNumber < 0) }
-        type="button"
+        type="submit"
         className=""
       />
     </section>
