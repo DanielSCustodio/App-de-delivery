@@ -26,7 +26,8 @@ const createSale = async (obj) => {
   return result;
 };
 
-const getSales = async (id) => {
+const getSales = async (id, role) => {
+  console.log(role);
   const sales = await Sale.findAll({ 
     where: { userId: id },
     include: [{ 

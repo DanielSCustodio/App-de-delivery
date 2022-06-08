@@ -13,9 +13,9 @@ const createSale = async (req, res, _next) => {
 
 const getSales = async (req, res) => {
   try {
-    const { id } = req.tokenData;
+    const { id, role } = req.tokenData;
 
-    const { code, sales } = await saleService.getSales(id);
+    const { code, sales } = await saleService.getSales(id, role);
   
     return res.status(code).json(sales);
   } catch (error) {
