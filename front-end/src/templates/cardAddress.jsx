@@ -22,7 +22,7 @@ export default function CardAddress() {
     async function getSellers() {
       const { data } = await getData('/seller', userData.token);
       setSellers(data);
-      setSeller(data[0].name);
+      setSeller(data[0].id);
     }
     getSellers();
   }, [userData.token]);
