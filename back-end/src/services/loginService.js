@@ -11,9 +11,9 @@ const login = async (email, password) => {
     return { code: 404, message: 'Not Found' };
   }
 
-  const { id, name } = userVerify;
+  const { id, name, role } = userVerify;
 
-  const jwtToken = token({ id, name }); 
+  const jwtToken = token({ id, name, role }); 
 
   const userData = {
     name: userVerify.name,
