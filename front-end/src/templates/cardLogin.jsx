@@ -9,6 +9,7 @@ export default function CardLogin() {
   const [password, setPassword] = useState('');
   const [isLogged, setIsLogged] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   function disabled() {
@@ -36,8 +37,12 @@ export default function CardLogin() {
   };
 
   useEffect(() => setFailedLogin(false), [email, password, setFailedLogin]);
+  useEffect(() => {
+    const getUser = JSON.parse(localStorage.getItem('user'));
+    setUser(getUser);
+  }, []);
 
-  if (isLogged) return <Navigate to="/customer/products" />;
+  if (isLogged || user) return <Navigate to="/customer/products" />;
   return (
     <section>
       <form>
