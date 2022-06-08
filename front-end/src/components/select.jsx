@@ -52,7 +52,10 @@ Select.propTypes = {
     PropTypes.number,
   ]).isRequired,
   onChange: PropTypes.func,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  })).isRequired,
   dataTestId: PropTypes.string.isRequired,
   // defaultValue: PropTypes.string,
 };
