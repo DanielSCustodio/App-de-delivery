@@ -9,7 +9,7 @@ import ContextGeneral from '../context/contextGeneral';
 export default function CardAddress() {
   const [sellers, setSellers] = useState([]);
   const userData = JSON.parse(localStorage.getItem('user'));
-  const [seller, setSeller] = useState('Selecione');
+  const [seller, setSeller] = useState('');
   const [deliveryAddress, setDeliveryAddress] = useState('');
   const [deliveryNumber, setDeliveryNumber] = useState(0);
   const { total, cart, setCart } = useContext(ContextGeneral);
@@ -19,12 +19,15 @@ export default function CardAddress() {
   const getId = () => sellers.find(({ name }) => name === seller).id;
 
   useEffect(() => {
-    getData('/seller', userData.token)
-      .then(({ data }) => setSellers(data));
+    async function getSellers() {
+      const { data } = await getData('/seller', userData.token);
+      setSellers(data);
+      setSeller(data[0].name);
+    }
+    getSellers();
   }, [userData.token]);
 
-  const requestPost = async (e) => {
-    e.preventDefault();
+  const requestPost = async () => {
     const body = {
       userId: userData.id,
       sellerId: getId(),
@@ -40,8 +43,12 @@ export default function CardAddress() {
 
     navigate(`/customer/orders/${data.id}`);
   };
+
   return (
     <section>
+      {console.log('selers', sellers)}
+      {console.log('selers', seller)}
+
       <Select
         name="select_sellers"
         value={ seller }
@@ -70,10 +77,10 @@ export default function CardAddress() {
       />
       <Button
         dataTestId="customer_checkout__button-submit-order"
-        handleClick={ (e) => requestPost(e) }
+        handleClick={ requestPost }
         name="Finalizar_Pedido"
         disabled={ !!(deliveryAddress === '' || deliveryNumber < 0) }
-        type="submit"
+        type="button"
         className=""
       />
     </section>
