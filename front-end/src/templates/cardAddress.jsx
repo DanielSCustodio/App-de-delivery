@@ -16,7 +16,7 @@ export default function CardAddress() {
 
   const navigate = useNavigate();
 
-  const getId = () => sellers.find(({ name }) => name === seller).id;
+  const getId = () => sellers.find(({ id }) => id === Number(seller))?.id;
 
   useEffect(() => {
     async function getSellers() {
@@ -33,7 +33,7 @@ export default function CardAddress() {
       sellerId: getId(),
       totalPrice: total,
       deliveryAddress,
-      deliveryNumber,
+      deliveryNumber: Number(deliveryNumber),
       cart: cart.map((c) => ({ id: c.id, quantity: c.quantity })),
     };
     console.log(body);
@@ -52,7 +52,7 @@ export default function CardAddress() {
       <Select
         name="select_sellers"
         value={ seller }
-        options={ sellers.map(({ name }) => name) }
+        options={ sellers }
         dataTestId="customer_checkout__select-seller"
         onChange={ ({ target }) => setSeller(target.value) }
         className="select_sellers"

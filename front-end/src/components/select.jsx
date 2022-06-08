@@ -32,10 +32,10 @@ export default function Select({
         </option> */}
         {options.map((option) => (
           <option
-            key={ option }
-            value={ option }
+            key={ option.id }
+            value={ option.id }
           >
-            {option}
+            {option.name}
           </option>
         ))}
       </select>

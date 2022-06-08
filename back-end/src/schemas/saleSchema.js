@@ -32,12 +32,11 @@ module.exports = Joi.object({
     'string.empty': '400|"deliveryAddress" is not allowed to be empty',
     'string.max': '400|"deliveryAddress" must not be greather than 100',
     }),
-  deliveryNumber: Joi.string().max(50).required().empty()
+  deliveryNumber: Joi.number().required().empty()
 .messages({
     'any.required': '400|"deliveryNumber" is required',
-    'string.base': '400|"deliveryNumber" must be a string',
-    'string.empty': '400|"deliveryNumber" is not allowed to be empty',
-    'string.max': '400|"deliveryNumber" must not be greather than 50',
+    'number.base': '400|"deliveryNumber" must be a number',
+    'number.empty': '400|"deliveryNumber" is not allowed to be empty',
     }),
   cart: Joi.array().items(Joi.object({
     id: Joi.number().integer().positive().strict()
