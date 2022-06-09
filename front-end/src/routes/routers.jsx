@@ -5,6 +5,7 @@ import RegisterPage from '../pages/register';
 import ProductsPage from '../pages/products';
 import Checkout from '../pages/checkout';
 import OrdersPage from '../pages/orders';
+import OrderDetails from '../pages/orderDetails';
 
 export default function Router() {
   return (
@@ -24,6 +25,7 @@ export default function Router() {
         path="/register"
         element={ <RegisterPage /> }
       />
+      <Route path="/customer/orders/:id" element={ <OrderDetails /> } />
       <Route path="/customer/products" element={ <ProductsPage /> } />
       <Route path="/customer/checkout" element={ <Checkout /> } />
       <Route path="/customer/orders" element={ <OrdersPage /> } />
