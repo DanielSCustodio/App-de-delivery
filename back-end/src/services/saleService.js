@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const { Sale, SalesProduct, Product } = require('../database/models');
+const { Sale, SalesProduct, Product, User } = require('../database/models');
 
 const config = require('../database/config/config');
 
@@ -9,7 +9,7 @@ const sequelize = new Sequelize(config.development);
 const createSale = async (obj) => {
   const { userId, sellerId, totalPrice, deliveryAddress, deliveryNumber,
     cart, status = 'Pendente' } = obj;
-    console.log('OBJ', obj);
+    // console.log('OBJ', obj);
 
   const result = await sequelize.transaction(async (t) => {
     const sale = await Sale.create({
@@ -41,7 +41,29 @@ const getSales = async (id, role) => {
   return { code: 200, sales };
 };
 
+const getSale = async (id) => {
+  const sale = await Sale.findOne({ 
+    where: { id },
+    include: [
+      { 
+        model: Product,
+        as: 'products',
+        attributes: { exclude: ['urlImage'] },
+        through: { attributes: ['quantity'] }, 
+      },
+      {
+        model: User,
+        as: 'seller',
+        attributes: { exclude: ['password'] },
+      },
+    ],
+  });
+
+  return { code: 200, sale };
+};
+
 module.exports = {
   createSale,
   getSales,
+  getSale,
 };
