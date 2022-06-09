@@ -27,9 +27,11 @@ const createSale = async (obj) => {
 };
 
 const getSales = async (id, role) => {
-  console.log(role);
+  console.log('role', role);
+  const params = role === 'customer' ? 'userId' : 'sellerId'; 
+  console.log('paramns', params);
   const sales = await Sale.findAll({ 
-    where: { userId: id },
+    where: { [params]: id },
     include: [{ 
       model: Product,
       as: 'products',
