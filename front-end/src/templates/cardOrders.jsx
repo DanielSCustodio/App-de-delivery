@@ -10,7 +10,7 @@ export default function CardOrders() {
 
   useEffect(() => {
     async function getSales() {
-      const { data } = await getData('/sale', userData.token);
+      const { data } = await getData('/sales', userData.token);
       setOrders(data);
     }
     getSales();
