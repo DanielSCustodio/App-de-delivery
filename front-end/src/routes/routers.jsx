@@ -12,13 +12,13 @@ export default function Router() {
     <Routes>
       <Route
         exact
-        path="/"
-        element={ <Navigate to="/login" /> }
+        path="/login"
+        element={ <LoginPage /> }
       />
       <Route
         exact
-        path="/login"
-        element={ <LoginPage /> }
+        path="/"
+        element={ <Navigate to="/login" /> }
       />
       <Route
         exact
