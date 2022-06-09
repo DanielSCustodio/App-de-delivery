@@ -6,6 +6,7 @@ import ProductsPage from '../pages/products';
 import Checkout from '../pages/checkout';
 import OrdersPage from '../pages/orders';
 import OrderDetails from '../pages/orderDetails';
+import SellerOrdersPage from '../pages/sellerOrder';
 
 export default function Router() {
   return (
@@ -29,6 +30,8 @@ export default function Router() {
       <Route path="/customer/products" element={ <ProductsPage /> } />
       <Route path="/customer/checkout" element={ <Checkout /> } />
       <Route path="/customer/orders" element={ <OrdersPage /> } />
+      <Route path="/seller/orders" element={ <SellerOrdersPage /> } />
+
     </Routes>
   );
 }
