@@ -9,7 +9,7 @@ export default function CardLogin() {
   const [password, setPassword] = useState('');
   const [isLogged, setIsLogged] = useState(false);
   const [failedLogin, setFailedLogin] = useState(false);
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   function disabled() {
@@ -30,6 +30,8 @@ export default function CardLogin() {
       const { data } = await postRequest('/login', { email, password });
       localStorage.setItem('user', JSON.stringify(data.userData));
       setIsLogged(true);
+      // if (user && user.role === 'customer') return navigate('/customer/products');
+      // if (user && user.role === 'seller') return navigate('/seller/orders');
     } catch (error) {
       setFailedLogin(true);
       setIsLogged(false);
@@ -37,12 +39,18 @@ export default function CardLogin() {
   };
 
   useEffect(() => setFailedLogin(false), [email, password, setFailedLogin]);
-  useEffect(() => {
-    const getUser = JSON.parse(localStorage.getItem('user'));
-    setUser(getUser);
-  }, []);
+  // useEffect(() => {
+  //   const getUser = JSON.parse(localStorage.getItem('user'));
+  //   setUser(getUser);
+  // }, []);
 
-  if (isLogged || user) return <Navigate to="/customer/products" />;
+  const getUser = JSON.parse(localStorage.getItem('user'));
+
+  if (getUser || isLogged) {
+    if (getUser.role === 'customer') return <Navigate to="/customer/products" />;
+    if (getUser.role === 'seller') return <Navigate to="/seller/orders" />;
+  }
+
   return (
     <section>
       <form>
