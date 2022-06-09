@@ -61,9 +61,23 @@ const getSale = async (id) => {
 
   return { code: 200, sale };
 };
+const saleUpdate = async (id, status) => {
+  const sale = await Sale.findOne({
+    where: { id },
+  });
+  console.log(sale);
+
+  if (!sale) return { code: 404, message: 'Not Found' };
+
+  await sale.update({ status }, { where: { id } });
+  console.log('update');
+
+  return { code: 200, message: 'Alteração feita com sucesso' };
+};
 
 module.exports = {
   createSale,
   getSales,
   getSale,
+  saleUpdate,
 };

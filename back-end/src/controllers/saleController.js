@@ -36,9 +36,24 @@ const getSale = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+const updateSale = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const { code, message } = await saleService.saleUpdate(id, status);
+
+    // console.log(sale)
+    return res.status(code).json(message);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: error.message });
+  }
+};
 
 module.exports = {
   createSale,
   getSales,
   getSale,
+  updateSale,
 };
