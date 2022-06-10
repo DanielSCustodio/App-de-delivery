@@ -7,19 +7,20 @@ import Checkout from '../pages/checkout';
 import OrdersPage from '../pages/orders';
 import OrderDetails from '../pages/orderDetails';
 import SellerOrdersPage from '../pages/sellerOrder';
+import SellerOrderDetailsPage from '../pages/sellerOrderDetails';
 
 export default function Router() {
   return (
     <Routes>
       <Route
         exact
-        path="/login"
-        element={ <LoginPage /> }
+        path="/"
+        element={ <Navigate to="/login" /> }
       />
       <Route
         exact
-        path="/"
-        element={ <Navigate to="/login" /> }
+        path="/login"
+        element={ <LoginPage /> }
       />
       <Route
         exact
@@ -31,6 +32,7 @@ export default function Router() {
       <Route path="/customer/checkout" element={ <Checkout /> } />
       <Route path="/customer/orders" element={ <OrdersPage /> } />
       <Route path="/seller/orders" element={ <SellerOrdersPage /> } />
+      <Route path="/seller/orders/:id" element={ <SellerOrderDetailsPage /> } />
 
     </Routes>
   );
