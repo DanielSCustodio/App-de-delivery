@@ -16,7 +16,7 @@ export default function PriceSum({ dataTestId }) {
   if (total <= 0) return null;
   return (
     <span data-testid={ dataTestId }>
-      { `R$ ${total.toFixed(2)}`.replace('.', ',') }
+      { ` R$ ${total.toFixed(2)}`.replace('.', ',') }
     </span>
   );
 }

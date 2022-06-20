@@ -1,10 +1,11 @@
 .header {
-  background-color: rgb(42, 42, 42);
+  background-color: rgb(51, 51, 51);
   border-bottom: 2px solid #edb831;
   box-shadow: rgb(133, 131, 131) 0 2px 15px;
   position: fixed;
   top: 0;
   width: 100vw;
+  z-index: 2;
 }
 
 .header-nav {
@@ -29,11 +30,13 @@
 }
 
 .header-nav__link--products {
+  border-right: 1px solid #edb831;
   color: rgb(212, 212, 212);
   flex-grow: 2;
 }
 
 .header-nav__link--orders {
+  border-right: 1px solid #edb831;
   color: white;
   flex-grow: 8;
 }

@@ -7,6 +7,9 @@ import PriceSum from '../components/priceSum';
 import Button from '../components/button';
 import ContextGeneral from '../context/contextGeneral';
 
+import './stylePages';
+import cartShop from './stylePages/shopping-cart.png';
+
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
   const { total } = useContext(ContextGeneral);
@@ -20,12 +23,12 @@ export default function ProductsPage() {
   }, [userData.token]);
 
   return (
-    <main>
+    <main className="container-page-products">
       <CardHeader
         userName={ userData.name }
       />
 
-      <section>
+      <section className="product-card-container__card">
         {products && products.map(({ name, urlImage, price, id }) => (
           <CardProduct
             name={ name }
@@ -36,20 +39,22 @@ export default function ProductsPage() {
           />
         ))}
       </section>
-
-      <Button
-        name="Ver Carrinho:"
-        handleClick={ () => navigate('/customer/checkout') }
-        className="total-price"
-        dataTestId="customer_products__button-cart"
-        type="button"
-        price={
-          <PriceSum
-            dataTestId="customer_products__checkout-bottom-value"
-          />
-        }
-        disabled={ total <= 0 }
-      />
+      <div className="container-page-products__total-price">
+        <img src={ cartShop } alt="Carrinho de compra" />
+        <Button
+          name="Ver Carrinho:"
+          handleClick={ () => navigate('/customer/checkout') }
+          className="total-price__button"
+          dataTestId="customer_products__button-cart"
+          type="button"
+          price={
+            <PriceSum
+              dataTestId="customer_products__checkout-bottom-value"
+            />
+          }
+          disabled={ total <= 0 }
+        />
+      </div>
     </main>
   );
 }
