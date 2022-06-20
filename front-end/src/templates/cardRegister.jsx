@@ -4,6 +4,9 @@ import TextInput from '../components/textInput';
 import Button from '../components/button';
 import { postRequest } from '../helpers/api';
 
+import '../components/styleComponents';
+import './styleTemplates';
+
 export default function CardRegister() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,7 +46,7 @@ export default function CardRegister() {
 
   return (
     <section>
-      <form>
+      <form className="login-card">
         <TextInput
           name="name"
           type="text"
@@ -52,7 +55,7 @@ export default function CardRegister() {
           labelText="Nome: "
           onChange={ ({ target }) => setName(target.value) }
           dataTestId="common_register__input-name"
-          className="aaaaaa"
+          className="text-input text-input__login"
         />
         <TextInput
           name="email"
@@ -62,7 +65,7 @@ export default function CardRegister() {
           labelText="Email: "
           onChange={ ({ target }) => setEmail(target.value) }
           dataTestId="common_register__input-email"
-          className="aaaaaa"
+          className="text-input text-input__login"
         />
         <TextInput
           name="password"
@@ -72,13 +75,13 @@ export default function CardRegister() {
           labelText="Senha: "
           onChange={ ({ target }) => setPassword(target.value) }
           dataTestId="common_register__input-password"
-          className="aaaaaa"
+          className="text-input text-input__login"
 
         />
         <Button
           handleClick={ registerClick }
           name="register"
-          className=""
+          className="button button__login button__login--acess"
           disabled={ disabled() }
           type="submit"
           dataTestId="common_register__button-register"
