@@ -20,7 +20,10 @@ export default function ProductsPage() {
   useEffect(() => {
     getData('/customer/products', userData.token)
       .then(({ data }) => setProducts(data));
-  }, [userData.token]);
+    if (userData.role !== 'customer') {
+      localStorage.removeItem('user');
+    }
+  }, [userData.role, userData.token]);
 
   return (
     <main className="container-page-products">

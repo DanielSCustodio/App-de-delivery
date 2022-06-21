@@ -46,6 +46,7 @@ export default function CardRegister() {
 
   return (
     <section>
+      <h1>C A D A S T R O </h1>
       <form className="login-card">
         <TextInput
           name="name"
@@ -80,7 +81,7 @@ export default function CardRegister() {
         />
         <Button
           handleClick={ registerClick }
-          name="register"
+          name="Cadastrar"
           className="button button__login button__login--acess"
           disabled={ disabled() }
           type="submit"

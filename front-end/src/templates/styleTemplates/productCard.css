@@ -1,8 +1,15 @@
-input[type=number]::-webkit-inner-spin-button {
+/* stylelint-disable property-no-vendor-prefix */
+
+/* stylelint-disable selector-attribute-quotes */
+
+/* stylelint-disable selector-attribute-brackets-space-inside */
+
+/* stylelint-disable selector-no-qualifying-type */
+input[type = number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  
 }
-input[type=number] { 
+
+input[type = number] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
