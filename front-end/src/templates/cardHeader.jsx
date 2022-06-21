@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -10,6 +11,8 @@ export default function CardHeader({ userName }) {
   // const [showProduts, setShowProduts] = useState(true);
   const navigate = useNavigate();
 
+  const { role } = JSON.parse(localStorage.getItem('user'));
+
   const logout = () => {
     localStorage.removeItem('user');
     navigate('/login');
@@ -18,15 +21,18 @@ export default function CardHeader({ userName }) {
   return (
     <header className="header">
       <nav className="header-nav">
+        {
+          role === 'customer' && <Link
+            to="/customer/products"
+            data-testid="customer_products__element-navbar-link-products"
+            className="header-nav__items header-nav__link  header-nav__link--products"
+          >
+            Produtos
+          </Link>
+        }
+
         <Link
-          to="/customer/products"
-          data-testid="customer_products__element-navbar-link-products"
-          className="header-nav__items header-nav__link  header-nav__link--products"
-        >
-          Produtos
-        </Link>
-        <Link
-          to="/customer/orders"
+          to={ `/${role}/orders` }
           data-testid="customer_products__element-navbar-link-orders"
           className="header-nav__items header-nav__link header-nav__link--orders"
         >
