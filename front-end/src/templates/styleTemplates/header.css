@@ -1,7 +1,7 @@
 .header {
   background-color: rgb(51, 51, 51);
   border-bottom: 2px solid #edb831;
-  box-shadow: rgb(133, 131, 131) 0 2px 15px;
+  box-shadow: rgb(133, 131, 131) 0 px 15px;
   margin-bottom: 3rem;
   overflow: hidden;
   position: fixed;
@@ -11,9 +11,11 @@
 }
 
 .header-nav {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  height: 8vh;
+  height: 7vh;
+  justify-content: space-between;
 }
 
 .header-nav__items {
@@ -40,12 +42,12 @@
 .header-nav__link--orders {
   border-right: 1px solid #edb831;
   color: white;
-  flex-grow: 8;
+  flex-grow: 2;
 }
 
 .header-nav__name {
   color: #edb831;
-  flex-grow: 2;
+  flex-grow: 1;
   margin: 0;
   text-transform: capitalize;
 

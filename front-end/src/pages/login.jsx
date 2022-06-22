@@ -11,9 +11,9 @@ export default function LoginPage() {
         <img className="container-page-login__logo" src={ logo } alt="logo" />
         <h1 className="container-page-login__title">Delivery App</h1>
         <i>Pediu, chegou!</i>
-        <section className="container-page-login__card">
-          <CardLogin />
-        </section>
+      </section>
+      <section className="container-page-login__card">
+        <CardLogin />
       </section>
     </main>
   );
