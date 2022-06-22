@@ -46,7 +46,7 @@ export default function CardRegister() {
 
   return (
     <section>
-      <h1>C A D A S T R O </h1>
+      <h1 className="register-title">C A D A S T R O </h1>
       <form className="login-card">
         <TextInput
           name="name"

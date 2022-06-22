@@ -70,3 +70,88 @@
   background-color: #edb831;
   color: #222;
 }
+
+
+.bm-burger-button {
+  height: 30px;
+  left: 50%;
+  position: fixed;
+  top: 2%;
+  transform: translateX(-50%);
+  width: 60px;
+}
+
+
+.bm-burger-bars-hover {
+  background: #edb831ce;
+}
+
+.bm-cross {
+  background: rgb(184, 36, 36);
+}
+
+.bm-menu {
+  background: #edb831;
+  font-size: 1.6em;
+}
+
+.bm-item-list {
+  color: #222;
+  padding: 1em;
+}
+
+.bm-item {
+  display: inline-block;
+}
+
+.item-hamburguer {
+  color: #222;
+  font-weight: 800;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+
+.item-hamburguer__name {
+  font-size: 1rem;
+}
+
+.item-hamburguer__button {
+  background-color: #222;
+  border-radius: 4px;
+  color: aliceblue;
+  left: 50%;
+  margin-top: 5rem;
+  padding: 1rem;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 180px;
+}
+
+.hedader-title {
+  display: none;
+}
+
+@media screen and ( max-width : 540px ) {
+
+  .header-nav__items {
+    display: none;
+  }
+
+  .bm-burger-bars {
+    background: #edb831;
+  }
+
+  .hedader-title {
+    color: aliceblue;
+    display: block;
+    margin: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .header-nav {
+    height: 5vh;
+  }
+}
+
