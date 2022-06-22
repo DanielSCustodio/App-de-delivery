@@ -54,7 +54,7 @@
 }
 
 .header-nav__buton {
-  background-color: #edb831ce;
+  background-color: #edb831;
   color: rgb(8, 8, 8);
   cursor: pointer;
   flex-grow: 1;
@@ -67,7 +67,7 @@
 }
 
 .header-nav__buton:hover {
-  background-color: #edb831;
+  background-color: #edb831ce;
   color: #222;
 }
 
@@ -83,7 +83,7 @@
 
 
 .bm-burger-bars-hover {
-  background: #edb831ce;
+  display: none;
 }
 
 .bm-cross {
@@ -152,6 +152,11 @@
 
   .header-nav {
     height: 5vh;
+  }
+
+  .bm-burger-bars-hover {
+    background: #edb831ce;
+    display: block;
   }
 }
 

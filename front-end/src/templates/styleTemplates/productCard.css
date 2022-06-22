@@ -23,17 +23,15 @@ input[type = number] {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 20rem;
-  justify-content: space-between;
-  margin-top: 3rem;
+  justify-content: center;
   text-align: center;
   transform: translateY(0);
   transition: 0.5s;
-  width: 17vmax;
 }
 
 .product-card__price-image {
-  height: 190px;
+  height: 200px;
+  margin-bottom: 3rem;
   width: 200px;
 }
 
@@ -53,7 +51,7 @@ input[type = number] {
 }
 
 .product-card__name-qtdy {
-  background-color: rgb(51, 51, 51);
+  background-color: rgba(51, 51, 51, 0.889);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -63,7 +61,8 @@ input[type = number] {
 }
 
 .product-card__name {
-  color: #d4d6d6;
+  color: #edb831;
+  display: inline-block;
   margin: 0;
 }
 
