@@ -107,7 +107,7 @@ export default function OrderDetailsSeller(props) {
             data-testid="seller_order_details__button-dispatch-check"
             onClick={ handleClick }
             disabled={ disabledDispatch }
-            className="button btn-status-order-details"
+            className="button btn-status-order-details btn-status-order-details-dispatch"
           >
             SAIU PARA ENTREGA
           </button>

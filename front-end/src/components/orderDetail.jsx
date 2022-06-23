@@ -57,11 +57,13 @@ export default function OrderDetail(props) {
                       `customer_order_details__element-order-table-item-number-${i}`
                     }
                   >
+                    <span className="item-table-mobile">Item:&nbsp;</span>
                     {i + 1}
                   </td>
                   <td
                     data-testid={ `customer_order_details_element-order-table-name-${i}` }
                   >
+                    <span className="item-table-mobile">Descrição:&nbsp;</span>
                     {product.name}
                   </td>
                   <td
@@ -69,6 +71,7 @@ export default function OrderDetail(props) {
                       `customer_order_details__element-order-table-quantity-${i}`
                     }
                   >
+                    <span className="item-table-mobile">Quantidade:&nbsp;</span>
                     {product.SalesProduct.quantity}
                   </td>
                   <td
@@ -76,11 +79,13 @@ export default function OrderDetail(props) {
                       `customer_order_details__element-order-table-sub-total${i}`
                     }
                   >
+                    <span className="item-table-mobile">Valor Unitário:&nbsp;</span>
                     {(1 * product.price).toFixed(2).replace('.', ',')}
                   </td>
                   <td
                     data-testid={ `customer_order_details_element-order-total-price${i}` }
                   >
+                    <span className="item-table-mobile">Sub-total:&nbsp;</span>
                     {(Number(product.price) * product.SalesProduct.quantity)
                       .toFixed(2)
                       .replace('.', ',')}

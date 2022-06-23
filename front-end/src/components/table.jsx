@@ -40,26 +40,31 @@ export default function Table() {
               <td
                 data-testid={ `customer_checkout__element-order-table-item-number-${i}` }
               >
+                <span className="item-table-mobile">Item:&nbsp;</span>
                 {i + 1}
               </td>
               <td
                 data-testid={ `customer_checkout__element-order-table-name-${i}` }
               >
+                <span className="item-table-mobile">Descrição:&nbsp;</span>
                 {sale.name}
               </td>
               <td
                 data-testid={ `customer_checkout__element-order-table-quantity-${i}` }
               >
+                <span className="item-table-mobile">Quantidade:&nbsp;</span>
                 {sale.quantity}
               </td>
               <td
                 data-testid={ `customer_checkout__element-order-table-unit-price-${i}` }
               >
+                <span className="item-table-mobile">Valor Unitário:&nbsp;</span>
                 {sale.price.toFixed(2).replace('.', ',')}
               </td>
               <td
                 data-testid={ `customer_checkout__element-order-table-sub-total-${i}` }
               >
+                <span className="item-table-mobile">Sub-total:&nbsp;</span>
                 {(sale.price * sale.quantity).toFixed(2).replace('.', ',')}
               </td>
               <td>

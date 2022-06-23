@@ -64,7 +64,9 @@
   }
 
   .table-items__btn-remove {
+    font-size: 1rem;
     margin: auto;
+    padding: 1rem;
     width: 50%;
   }
 }
