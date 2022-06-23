@@ -1,15 +1,20 @@
 /* eslint-disable react/jsx-closing-tag-location */
-import React from 'react';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { slide as Menu } from 'react-burger-menu';
 import { Link, useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import PriceSum from '../components/priceSum';
 import Button from '../components/button';
+import ContextGeneral from '../context/contextGeneral';
 
 import './styleTemplates';
 import '../components/styleComponents';
 
+import cartShop from '../pages/stylePages/shopping-cart.png';
+
 export default function CardHeader({ userName }) {
   const navigate = useNavigate();
+  const { total } = useContext(ContextGeneral);
 
   const { role } = JSON.parse(localStorage.getItem('user'));
 
@@ -45,6 +50,26 @@ export default function CardHeader({ userName }) {
         >
           {userName}
         </p>
+
+        {
+          role === 'customer'
+          && <div className="container-page-products__total-price">
+            <img src={ cartShop } alt="Carrinho de compra" className="total-price__img" />
+            <Button
+              name="Ver Carrinho"
+              handleClick={ () => navigate('/customer/checkout') }
+              className="total-price__button"
+              dataTestId="customer_products__button-cart"
+              type="button"
+              price={
+                <PriceSum
+                  dataTestId="customer_products__checkout-bottom-value"
+                />
+              }
+              disabled={ total <= 0 }
+            />
+          </div>
+        }
         <Button
           dataTestId="customer_products__element-navbar-link-logout"
           type="button"

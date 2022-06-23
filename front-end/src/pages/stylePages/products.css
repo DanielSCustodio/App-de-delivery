@@ -16,38 +16,3 @@
   width: 90vw;
 }
 
-.container-page-products__total-price {
-  background-color: #222;
-  border-radius: 10px 0 0;
-  bottom: 1rem;
-  box-shadow: #edb831  0 2px 2px;
-  display: flex;
-  height: 2rem;
-  justify-content: flex-start;
-  padding: 0.3rem;
-  position: fixed;
-  right: 0;
-  width: 10%;
-}
-
-.total-price__img {
-  width: 20%;
-}
-
-.total-price__button {
-  background-color: #08524100;
-  border: 0;
-  color: #edb831;
-  font-family: Poppins , sans-serif , Arial , Helvetica;
-  font-size: 0.75rem;
-  font-weight: 800;
-}
-
-.total-price__button:disabled {
-  cursor: not-allowed;
-}
-
-.total-price__button:enabled {
-  cursor: pointer;
-}
-

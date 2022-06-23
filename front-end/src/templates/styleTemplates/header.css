@@ -1,3 +1,4 @@
+/* stylelint-disable selector-max-specificity */
 .header {
   background-color: rgb(51, 51, 51);
   border-bottom: 2px solid #edb831;
@@ -36,13 +37,13 @@
 .header-nav__link--products {
   border-right: 1px solid #edb831;
   color: rgb(212, 212, 212);
-  flex-grow: 2;
+  flex-grow: 6;
 }
 
 .header-nav__link--orders {
   border-right: 1px solid #edb831;
   color: white;
-  flex-grow: 2;
+  flex-grow: 6;
 }
 
 .header-nav__name {
@@ -71,6 +72,9 @@
   color: #222;
 }
 
+#react-burger-menu-btn {
+  display: none;
+}
 
 .bm-burger-button {
   height: 30px;
@@ -132,6 +136,36 @@
   display: none;
 }
 
+.container-page-products__total-price {
+  background-color: rgb(51, 51, 51);
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.total-price__img {
+  width: 20%;
+}
+
+.total-price__button {
+  background-color: rgb(51, 51, 51);
+  border: 0;
+  color: #edb831;
+  font-family: Poppins , sans-serif , Arial , Helvetica;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.total-price__button:disabled {
+  cursor: not-allowed;
+}
+
+.total-price__button:enabled {
+  cursor: pointer;
+}
+
+
 @media screen and ( max-width : 540px ) {
 
   .header-nav__items {
@@ -146,6 +180,7 @@
     color: aliceblue;
     display: block;
     margin: 0;
+    margin-bottom: 1rem;
     margin-top: 1rem;
     text-align: center;
   }
@@ -157,6 +192,19 @@
   .bm-burger-bars-hover {
     background: #edb831ce;
     display: block;
+  }
+
+  #react-burger-menu-btn {
+    display: block;
+  }
+
+  .total-price__img {
+    display: none;
+  }
+
+  .total-price__button {
+    font-size: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
