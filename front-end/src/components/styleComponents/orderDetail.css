@@ -1,0 +1,134 @@
+.card-order-detail {
+  margin-top: 8rem;
+  overflow: hidden;
+}
+
+.order-details-info {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  width: 60vw;
+}
+
+.order-details-info h3 {
+  font-size: 0.8rem;
+  margin-left: 1rem;
+}
+
+.container-tableItems {
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+}
+
+.table-items {
+  text-align: center;
+  width: 100%;
+}
+
+.table-items__thead-details {
+  background-color: #edb831;
+  color: #222;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.table-items__tbody {
+  background-color: rgb(61, 60, 60);
+  color: #edb831;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.table-items th, .table-items td {
+  padding: 0.5rem  0;
+}
+
+.table-items__tbody tr:nth-child( 2n ) {
+  background-color: rgb(87, 85, 85);
+}
+
+.order-detail-buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 1rem;
+  width: 60vw;
+}
+
+
+.container-pricesum__item {
+  background-color: #edb831;
+  color: #222;
+  display: inline;
+  font-weight: 800;
+  padding: 1rem 2rem;
+}
+
+.btn-status-order-details {
+  background-color: #222;
+  color: #edb831;
+  display: inline;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-left: 1rem;
+  padding: 1rem 2rem;
+}
+
+.btn-status-order-details:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+@media screen and ( max-width : 720px ) {
+
+  .container-tableItems {
+    width: 90%;
+  }
+
+  .table-items__thead-details {
+    display: none;
+  }
+
+  .table-items__tbody td {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+  }
+
+  .order-details-info {
+    flex-direction: column;
+    width: 90vw;
+  }
+
+  .order-detail-buttons {
+    flex-direction: column;
+  }
+
+  .btn-status-order-details {
+    font-size: 0.8rem;
+    margin-left: 0;
+    padding: 1.4rem;
+  }
+
+}
+
+
+@media only screen and ( min-width : 1200px ) {
+
+  .table-items__tbody tr td:nth-child( 1 ) { width: 8%; }
+
+  .table-items__tbody tr td:nth-child( 2 ) { width: 30%; }
+
+  .table-items__tbody tr td:nth-child( 3 ) { width: 12%; }
+
+  .table-items__tbody tr td:nth-child( 4 ) { width: 15%; }
+
+  .table-items__tbody tr td:nth-child( 5 ) { width: 10%; }
+}

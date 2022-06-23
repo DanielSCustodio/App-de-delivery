@@ -47,7 +47,7 @@ export default function CardAddress() {
 
   return (
     <section className="container-card-adress">
-      <h2 className="container-card-adress__title">Detalhe e Endereço de entrega</h2>
+      <h2 className="container-card-adress__title">Detalhe e endereço de entrega</h2>
       <section>
         <span className="container-card-adress__span">P.Vendedora Resposável</span>
         <section className="container-card-adress__card-infos">
