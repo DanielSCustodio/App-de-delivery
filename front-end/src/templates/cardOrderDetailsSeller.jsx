@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../components/styleComponents';
+import './styleTemplates';
 
 export default function OrderDetailsSeller(props) {
   const {
@@ -22,22 +24,81 @@ export default function OrderDetailsSeller(props) {
   ];
   if (id) {
     return (
-      <section>
-        <div>
-          <h1 data-testid="seller_order_details__element-order-details-label-order-id">
-            {id}
-          </h1>
-          <h1
+      <section className="card-order-detail">
+        <section className="order-details-info">
+          <h3 data-testid="seller_order_details__element-order-details-label-order-id">
+            {`Número do pedido: ${id}`}
+          </h3>
+          <h3
             data-testid="seller_order_details__element-order-details-label-order-date"
           >
-            {date}
-          </h1>
-          <h1 data-testid={ dataTestIdStatus }>{status}</h1>
+            {`Realizado em:  ${date}`}
+          </h3>
+          <h3 data-testid={ dataTestIdStatus }>{`Status: ${status}`}</h3>
+        </section>
+        <section className="container-tableItems">
+          <table className="table-items">
+            <thead className="table-items__thead-details">
+              <tr>
+                {heads.map((head, i) => (
+                  <th key={ i }>{head}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="table-items__tbody">
+              {products.map((product, i) => (
+                <tr key={ product.id }>
+                  <td
+                    data-testid={
+                      `seller_order_details__element-order-table-item-number-${i}`
+                    }
+                  >
+                    {i + 1}
+                  </td>
+                  <td
+                    data-testid={ `seller_order_details__element-order-table-name-${i}` }
+                  >
+                    {product.name}
+                  </td>
+                  <td
+                    data-testid={
+                      `seller_order_details__element-order-table-quantity-${i}`
+                    }
+                  >
+                    {product.SalesProduct.quantity}
+                  </td>
+                  <td
+                    data-testid={
+                      `seller_order_details__element-order-table-sub-total-${i}`
+                    }
+                  >
+                    {(1 * product.price).toFixed(2).replace('.', ',')}
+                  </td>
+                  <td
+                    data-testid={ `seller_order_details__element-order-total-price-${i}` }
+                  >
+                    {(Number(product.price) * product.SalesProduct.quantity)
+                      .toFixed(2)
+                      .replace('.', ',')}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+        <section className="order-detail-buttons">
+          <h3
+            data-testid="seller_order_details__element-order-total-price"
+            className="button container-pricesum__item"
+          >
+            {`Total: R$ ${Number(totalPrice).toFixed(2).replace('.', ',')}`}
+          </h3>
           <button
             type="button"
             data-testid="seller_order_details__button-preparing-check"
             onClick={ handleClick }
             disabled={ disabledPreparing }
+            className="button btn-status-order-details"
           >
             PREPARAR PEDIDO
           </button>
@@ -46,61 +107,11 @@ export default function OrderDetailsSeller(props) {
             data-testid="seller_order_details__button-dispatch-check"
             onClick={ handleClick }
             disabled={ disabledDispatch }
+            className="button btn-status-order-details"
           >
             SAIU PARA ENTREGA
           </button>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              {heads.map((head, i) => (
-                <th key={ i }>{head}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product, i) => (
-              <tr key={ product.id }>
-                <td
-                  data-testid={
-                    `seller_order_details__element-order-table-item-number-${i}`
-                  }
-                >
-                  {i + 1}
-                </td>
-                <td
-                  data-testid={ `seller_order_details__element-order-table-name-${i}` }
-                >
-                  {product.name}
-                </td>
-                <td
-                  data-testid={
-                    `seller_order_details__element-order-table-quantity-${i}`
-                  }
-                >
-                  {product.SalesProduct.quantity}
-                </td>
-                <td
-                  data-testid={
-                    `seller_order_details__element-order-table-sub-total-${i}`
-                  }
-                >
-                  {(1 * product.price).toFixed(2).replace('.', ',')}
-                </td>
-                <td
-                  data-testid={ `seller_order_details__element-order-total-price-${i}` }
-                >
-                  {(Number(product.price) * product.SalesProduct.quantity)
-                    .toFixed(2)
-                    .replace('.', ',')}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <h1 data-testid="seller_order_details__element-order-total-price">
-          {`Total: R$ ${Number(totalPrice).toFixed(2).replace('.', ',')}`}
-        </h1>
+        </section>
       </section>
     );
   }

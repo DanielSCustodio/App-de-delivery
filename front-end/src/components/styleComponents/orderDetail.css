@@ -86,6 +86,12 @@
   cursor: pointer;
 }
 
+.btn-status-order-details:hover:disabled {
+  background-color: #222;
+  cursor: not-allowed;
+
+}
+
 @media screen and ( max-width : 720px ) {
 
   .container-tableItems {
