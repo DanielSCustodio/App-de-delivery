@@ -4,6 +4,7 @@ import tableItems from './tableItems.css';
 import priceSum from './priceSum.css';
 import orderDetail from './orderDetail.css';
 import orders from './orders.css';
+import footer from './footer.css';
 
 export {
   textInput,
@@ -12,4 +13,5 @@ export {
   priceSum,
   orderDetail,
   orders,
+  footer,
 };
