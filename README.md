@@ -1,11 +1,15 @@
 #  Projeto App de Delivery!
 ![Screenshot from 2022-06-25 17-40-10](https://user-images.githubusercontent.com/29557187/175789959-e62383f8-560d-4027-8c8a-8d174fae3872.png)
-Desenvolvimento de uma aplicação de delivery,implemantação do back-end e fornt-end com responsividades para mobile.
+Desenvolvimento de uma aplicação de delivery, implementação do back-end e front-end com responsividade para mobile.
+
 A aplicação tem o objetivo de realizar o fluxo do cliente a da pessoa vendedora.
 O Cliente realiza a compra e fornece a informação de endereço.
+
 A pessoa vendedora faz o gerenciamento do pedido, alterando o status do pedido.
-Enquanto ocorre o fluxo da pessoa vendedora, as alterações do status, no painel de pedido do cliente o status também é atualizado.
-Eu fique mais responsável pela parte do front-end, participei de toda criação das telas e componentes e fiz a aplicação do CSS.
+
+Enquanto ocorre o fluxo da pessoa vendedora, as alterações do status. No painel de pedido do cliente o status também é atualizado.
+
+Eu fique responsável pela parte do front-end, participei de toda criação das telas e componentes e fiz a aplicação do CSS.
 
 ## Desenvolvedores
 - [Adriana Martins de Souza](https://www.linkedin.com/in/adriana-ms/)
