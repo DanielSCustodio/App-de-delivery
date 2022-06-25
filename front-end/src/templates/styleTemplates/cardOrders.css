@@ -13,6 +13,7 @@
 @media screen and ( max-width : 897px ) {
 
   .card-orders {
+    flex-direction: column-reverse;
     margin-top: 8rem;
     width: 90vw;
   }

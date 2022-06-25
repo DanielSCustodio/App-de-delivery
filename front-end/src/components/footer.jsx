@@ -9,7 +9,6 @@ export default function Footer() {
       <section className="container-footer__card-logo">
         <img className="footer__logo" src={ logo } alt="logo" />
         <p>Delivey App</p>
-        <p>Projeto Final</p>
         <p className="copy">
           &copy;
           {new Date().getFullYear()}
