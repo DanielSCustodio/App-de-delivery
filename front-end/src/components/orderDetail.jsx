@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styleComponents';
@@ -153,7 +154,7 @@ OrderDetail.propTypes = {
   date: PropTypes.string.isRequired,
   totalPrice: PropTypes.string.isRequired,
   seller: PropTypes.string.isRequired,
-  disabled: PropTypes.func.isRequired,
+  disabled: PropTypes.any.isRequired,
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
