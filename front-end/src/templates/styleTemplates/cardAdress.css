@@ -71,15 +71,15 @@
 @media screen and ( max-width : 720px ) {
 
   .container-card-adress {
-    width: 95%;
+    width: 90%;
   }
 
   .container-card-adress__title {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .card-infos__item {
-    margin-top: 1rem;
+    margin-top: 1.2rem;
   }
 
 }
