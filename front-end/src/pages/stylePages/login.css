@@ -1,11 +1,10 @@
 .container-page-login {
-  align-content: center;
-  background: linear-gradient(300deg, #edb831 19%, aliceblue 100%);
+  align-content: flex-start;
   display: flex;
   flex-wrap: wrap;
-  height: 100vh;
   justify-content: space-evenly;
   margin: auto;
+  margin-top: 1rem;
   overflow: hidden;
   width: 100vw;
 }
@@ -48,5 +47,6 @@
   .container-page-login__title {
     display: none;
   }
+
 }
 

@@ -1,9 +1,9 @@
 .login-card {
   align-items: flex-start;
-  background-color: rgb(234, 241, 239);
-  border: 1px solid #222;
+  background-color: #222;
   border-radius: 4px;
   box-shadow: rgba(44, 48, 45, 0.712) 0 1px 7px;
+  color: aliceblue;
   display: flex;
   flex-direction: column;
   height: 20rem;
@@ -51,7 +51,7 @@
 }
 
 .button__login--acess:disabled {
-  color: white;
+  color: #222;
   cursor: not-allowed;
 }
 
