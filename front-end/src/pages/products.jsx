@@ -3,6 +3,7 @@ import CardHeader from '../templates/cardHeader';
 import { getData } from '../helpers/api';
 import CardProduct from '../templates/cardProduct';
 import './stylePages';
+import Banner from '../components/banner';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -22,6 +23,7 @@ export default function ProductsPage() {
         <CardHeader
           userName={ userData.name }
         />
+        <Banner namePage="Produtos" />
 
         <section className="product-card-container__card">
           {products && products.map(({ name, urlImage, price, id }) => (

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import './styleComponents';
 
 export default function OrderDetail(props) {
+  const [classStatus, setClassStatus] = React.useState(null);
+
   const {
     id,
     seller,
@@ -21,6 +23,26 @@ export default function OrderDetail(props) {
     'Valor Unitário',
     'Sub-Total',
   ];
+
+  React.useEffect(() => {
+    switch (status) {
+    case 'Entregue':
+      setClassStatus('item-delivery-check');
+      break;
+    case 'Pendente':
+      setClassStatus('item-delivery-pending');
+      break;
+    case 'Preparando':
+      setClassStatus('item-delivery-preparing');
+      break;
+    case 'Em Trânsito':
+      setClassStatus('item-delivery-preparing-intransit');
+      break;
+    default:
+      break;
+    }
+  }, [status]);
+
   if (id) {
     return (
       <section className="card-order-detail">
@@ -38,7 +60,14 @@ export default function OrderDetail(props) {
           >
             {`Realizado em:  ${date}`}
           </h3>
-          <h3 data-testid={ dataTestIdStatus }>{`Status: ${status}`}</h3>
+          <h3 data-testid={ dataTestIdStatus }>
+            Status:
+            <span className={ classStatus }>
+              {' '}
+              {status}
+            </span>
+            {' '}
+          </h3>
         </section>
         <section className="container-tableItems">
           <table className="table-items">

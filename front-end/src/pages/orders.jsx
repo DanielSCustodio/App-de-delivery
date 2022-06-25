@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import CardOrders from '../templates/cardOrders';
 import CardHeader from '../templates/cardHeader';
 import './stylePages/index';
+import Banner from '../components/banner';
 
 export default function OrdersPage() {
   const userData = JSON.parse(localStorage.getItem('user'));
@@ -17,6 +18,7 @@ export default function OrdersPage() {
       <CardHeader
         userName={ userData.name }
       />
+      <Banner namePage="Pedidos" />
       <CardOrders />
     </main>
   );

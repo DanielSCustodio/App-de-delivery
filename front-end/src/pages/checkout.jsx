@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from '../components/banner';
 import CardAddress from '../templates/cardAddress';
 import CardCheckout from '../templates/cardCheckout';
 import CardHeader from '../templates/cardHeader';
@@ -12,8 +13,8 @@ export default function Checkout() {
       <CardHeader
         userName={ userData.name }
       />
+      <Banner namePage="Checkout" />
       <section className="container-page-checkout">
-        <h1 className="container-page-checkout__title">Finalizar Pedido</h1>
         <CardCheckout />
         <CardAddress />
       </section>

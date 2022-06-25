@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from '../components/banner';
 import CardHeader from '../templates/cardHeader';
 import CardSaleDetails from '../templates/cardSaleDetails';
 
@@ -9,6 +10,8 @@ export default function OrderDetails() {
       <CardHeader
         userName={ userData.name }
       />
+      <Banner namePage="Detalhes do pedido" />
+
       <CardSaleDetails />
     </>
   );
