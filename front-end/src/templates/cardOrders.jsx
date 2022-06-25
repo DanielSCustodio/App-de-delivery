@@ -19,6 +19,7 @@ export default function CardOrders() {
   }, [userData.token]);
   return (
     <section className="card-orders">
+      {orders.length === 0 && <h3>Você ainda não realizou uma compra.</h3>}
       {orders.map((order) => (
         <Order
           key={ order.id }

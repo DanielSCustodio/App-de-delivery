@@ -4,7 +4,6 @@ import CardSaleDetails from '../templates/cardSaleDetails';
 
 export default function OrderDetails() {
   const userData = JSON.parse(localStorage.getItem('user'));
-
   return (
     <>
       <CardHeader

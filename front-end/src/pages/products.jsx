@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import CardHeader from '../templates/cardHeader';
 import { getData } from '../helpers/api';
 import CardProduct from '../templates/cardProduct';
-
 import './stylePages';
 
 export default function ProductsPage() {
@@ -18,22 +17,24 @@ export default function ProductsPage() {
   }, [userData.role, userData.token]);
 
   return (
-    <main className="container-page-products">
-      <CardHeader
-        userName={ userData.name }
-      />
+    <section>
+      <main className="container-page-products">
+        <CardHeader
+          userName={ userData.name }
+        />
 
-      <section className="product-card-container__card">
-        {products && products.map(({ name, urlImage, price, id }) => (
-          <CardProduct
-            name={ name }
-            imageURL={ urlImage }
-            price={ +price }
-            id={ id }
-            key={ id }
-          />
-        ))}
-      </section>
-    </main>
+        <section className="product-card-container__card">
+          {products && products.map(({ name, urlImage, price, id }) => (
+            <CardProduct
+              name={ name }
+              imageURL={ urlImage }
+              price={ +price }
+              id={ id }
+              key={ id }
+            />
+          ))}
+        </section>
+      </main>
+    </section>
   );
 }

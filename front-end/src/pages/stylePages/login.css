@@ -1,6 +1,6 @@
 .container-page-login {
   align-content: center;
-  background: linear-gradient(300deg, rgba(249, 193, 53, 0.334) 19%, #efecec 100%);
+  background: linear-gradient(300deg, #edb831 19%, aliceblue 100%);
   display: flex;
   flex-wrap: wrap;
   height: 100vh;

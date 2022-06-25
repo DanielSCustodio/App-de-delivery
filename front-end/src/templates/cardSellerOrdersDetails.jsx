@@ -50,5 +50,5 @@ export default function CardSellerOrdersDetails() {
     );
   }
 
-  return <h1>Loading</h1>;
+  return null;
 }
