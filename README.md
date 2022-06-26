@@ -7,7 +7,7 @@ O Cliente realiza a compra e fornece a informação de endereço.
 
 A pessoa vendedora faz o gerenciamento do pedido, alterando o status do pedido.
 
-Enquanto ocorre o fluxo da pessoa vendedora, as alterações do status. No painel de pedido do cliente o status também é atualizado.
+Enquanto ocorre o fluxo da pessoa vendedora, as alterações do status, no painel de pedido do cliente o status também é atualizado.
 
 Eu fique responsável pela parte do front-end, participei de toda criação das telas e componentes e fiz a aplicação do CSS.
 
