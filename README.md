@@ -3,7 +3,7 @@
 Desenvolvimento de uma aplicação de delivery, implementação do back-end e front-end com responsividade para mobile.
 
 A aplicação tem o objetivo de realizar o fluxo do cliente a da pessoa vendedora.
-O Cliente realiza a compra e fornece a informação de endereço.
+O cliente realiza a compra e fornece a informação de endereço.
 
 A pessoa vendedora faz o gerenciamento do pedido, alterando o status do pedido.
 
