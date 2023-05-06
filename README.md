@@ -1,6 +1,6 @@
 # Projeto App de Delivery
 ![Screenshot from 2022-06-25 17-40-10](https://user-images.githubusercontent.com/29557187/175789959-e62383f8-560d-4027-8c8a-8d174fae3872.png)
-Desenvolvimento de uma aplicação de delivery, implementação do back-end e front-end com responsividade para mobile.
+Aplicação de delivery, implementação do back-end e front-end com responsividade para mobile.
 
 A aplicação tem o objetivo de realizar o fluxo do cliente a da pessoa vendedora.
 O cliente realiza a compra e fornece a informação de endereço.
